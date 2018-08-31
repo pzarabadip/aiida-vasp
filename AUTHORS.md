@@ -1,10 +1,10 @@
 AiiDA-VASP was designed and developed by Rico Häuselmann at the Institute for Theoretical Physics, ETH Zürich.
 
 ## Development Team
-* Rico Häuselmann, THEOS, EPFL (maintainer)
+* Espen Flage-Larsen, SINTEF (maintainter)
 * Dominik Gresch, ITP, ETHZ
 * Martin Callsen, Gent University
-* Espen Flage-Larsen, SINTEF
+* Rico Häuselmann, THEOS, EPFL (retired)
 
 ## Thanks
 Special thanks go to the following individuals and organizations that helped in the development.
