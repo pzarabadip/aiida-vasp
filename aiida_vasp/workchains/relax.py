@@ -322,7 +322,10 @@ class RelaxWorkChain(WorkChain):
             settings = AttributeDict(self.ctx.inputs.settings.get_dict())
             settings.parser_settings['add_structure'] = False
             self.ctx.inputs.settings = settings
-            self.ctx.inputs.parameters = self.inputs.parameters
+            try:
+                self.ctx.inputs.parameters = self.inputs.parameters
+            except AttributeError:
+                pass
             if self._verbose:
                 self.report('performing a final calculation using the relaxed structure.')
 
