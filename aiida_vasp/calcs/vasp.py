@@ -121,6 +121,59 @@ class VaspCalculation(VaspCalcBase):
                        'ERROR_NO_RETRIEVED_TEMPORARY_FOLDER',
                        message='the retrieved_temporary folder data node could not be accessed.')
         spec.exit_code(352, 'ERROR_CRITICAL_MISSING_FILE', message='a file that is marked by the parser as critical is missing.')
+        
+        # These are erros that can be retrived from _schedular.stdout
+        spec.exit_code(400, "ERROR_TETRAHEDRON_NKPT", message="Tetrahedron method fails for NKPT<4")
+        spec.exit_code(401, "ERROR_TETRAHEDRON_KMESH", message="Fatal error detecting k-mesh")
+        spec.exit_code(402, "ERROR_TETRAHEDRON_KPOINT_MATCH", message="Fatal error: unable to match k-point")
+        spec.exit_code(403, "ERROR_TETRAHEDRON_TETIRR", message="Routine TETIRR needs special values")
+        spec.exit_code(404, "ERROR_TETRAHEDRON_KPOINT_NUM", message="Tetrahedron method fails (number of k-points < 4)")
+        spec.exit_code(405, "ERROR_TETRAHEDRON_DENTET", message="DENTET")
+        
+        spec.exit_code(405, "ERROR_INVERSE_ROTATION_MATRIX", message="inverse of rotation matrix was not found (increase SYMPREC)")
+        spec.exit_code(406, "ERROR_BRMIX", message="BRMIX: very serious problems")
+        spec.exit_code(407, "ERROR_SUBSPACEMATRIX", message="WARNING: Sub-Space-Matrix is not hermitian in DAV")
+        spec.exit_code(408, "ERROR_TETIRR", message="Routine TETIRR needs special values")
+        spec.exit_code(409, "ERROR_INCORRECT_SHIFT", message="Could not get correct shifts")
+        spec.exit_code(410, "ERROR_REAL_OPTLAY", message="REAL_OPTLAY: internal error")
+        spec.exit_code(411, "ERROR_REAL_OPTLAY", message="REAL_OPT: internal ERROR")
+        spec.exit_code(412, "ERROR_RSPHER", message="ERROR RSPHER")
+        
+        spec.exit_code(414, "ERROR_TOO_FEW_BANDS", message="TOO FEW BANDS")
+        spec.exit_code(415, "ERROR_TRIPLE_PRODUCT", message="ERROR: the triple product of the basis vectors")
+        spec.exit_code(416, "ERROR_ROT_MATRIX", message="Found some non-integer element in rotation matrix")
+        spec.exit_code(417, "ERROR_BRIONS", message="BRIONS problems: POTIM should be increased")
+        spec.exit_code(418, "ERROR_PRICEL", message="internal error in subroutine PRICEL")
+        spec.exit_code(419, "ERROR_ZPOTRF", message="LAPACK: Routine ZPOTRF failed")
+        spec.exit_code(420, "ERROR_AMIN", message="One of the lattice vectors is very long (>50 A), but AMIN")
+        spec.exit_code(421, "ERROR_ZBRENT", message="ZBRENT: fatal internal in")
+        spec.exit_code(422, "ERROR_ZBRENT", message="ZBRENT: fatal error in bracketing")
+        spec.exit_code(423, "ERROR_PSSYEVX", message="ERROR in subspace rotation PSSYEVX")
+        spec.exit_code(424, "ERROR_EDDRMM", message="WARNING in EDDRMM: call to ZHEGV failed")
+        spec.exit_code(425, "ERROR_EDDDAV", message="Error EDDDAV: Call to ZHEGV failed")
+        spec.exit_code(426, "ERROR_GRAD_NOT_ORTH", message="EDWAV: internal error, the gradient is not orthogonal")
+        spec.exit_code(427, "ERROR_NICHT_KONV", message="ERROR: SBESSELITER : nicht konvergent")
+        spec.exit_code(428, "ERROR_ZHEEV", message="ERROR EDDIAG: Call to routine ZHEEV failed!")
+        spec.exit_code(429, "ERROR_ELF_KPAR", message="ELF: KPAR>1 not implemented")
+        spec.exit_code(430, "ERROR_ELF_NCL", message="WARNING: ELF not implemented for non collinear case")
+        spec.exit_code(431, "ERROR_RHOSYG", message="RHOSYG internal error")
+        spec.exit_code(432, "ERROR_POSMAP", message="POSMAP internal error: symmetry equivalent atom not found")
+        spec.exit_code(433, "ERROR_POINT_GROUP", message="Error: point group operation missing")
+        spec.exit_code(434, "ERROR_ALIASING", message="WARNING: small aliasing (wrap around) errors must be expected")
+        spec.exit_code(435, "ERROR_ALIASING_INCAR", message="Your FFT grids (NGX,NGY,NGZ) are not sufficient for an accurate")
+        spec.exit_code(436, "ERROR_KPOINT_SYMM", message="Reciprocal lattice and k-lattice belong to different class of" " lattices.")
+
+        # These are errors that can be retrieved from _schedulat.stderr --> Start from 450
+        spec.exit_code(450, "ERROR_LRF_COMM", message="LRF_COMMUTATOR internal error")
+        spec.exit_code(451, "ERROR_KPOINTS_TRANS", message="internal error in GENERATE_KPOINTS_TRANS: ")
+        spec.exit_code(452, "ERROR_KPOINTS_TRANS", message="number of G-vector changed in star")
+        spec.exit_code(453, "ERROR_OUT_OF_MEMORY", message="Allocation would exceed memory limit")
+
+        # These are erros that can be spotted from vasprun.xml --> start from 460
+        spec.exit_code(460, "ERROR_COVERGENCE_NOT_REACHED", message="Calculation is not converged")
+        spec.exit_code(461, "ERROR_ELECTRONIC_CONVERGENCE_NOT_REACHED", message="Calculation is not converged electronically")
+        spec.exit_code(462, "ERROR_IONIC_CONVERGENCE_NOT_REACHED", message="Calculation is not converged in ionic steps")
+
         spec.exit_code(1001, 'ERROR_PARSING_FILE_FAILED', message='parsing a file has failed.')
         spec.exit_code(1002, 'ERROR_NOT_ABLE_TO_PARSE_QUANTITY', message='the parser is not able to parse the requested quantity')
 
