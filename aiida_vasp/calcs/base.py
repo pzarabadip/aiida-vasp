@@ -113,10 +113,10 @@ class VaspCalcBase(CalcJob):
         """Add all files required for restart to the list of files to be copied from the previous calculation."""
         restart_folder = self.inputs.restart_folder
         computer = self.node.computer
-        excluded = ['KPOINTS', 'POSCAR', 'INCAR', 'POTCAR', '_aiidasubmit.sh', '.aiida']
+        included = ['CHGCAR', 'WAVECAR']
         copy_list = [(computer.uuid, os.path.join(restart_folder.get_remote_path(), name), '.')
                      for name in restart_folder.listdir()
-                     if name not in excluded]
+                     if name in included]
         return copy_list
 
     def verify_inputs(self):
